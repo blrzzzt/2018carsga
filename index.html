@@ -10,7 +10,7 @@
 <body>
 <div id="myGrid" style="height:100%;width:auto;" class="ag-theme-dark"></div>
   <script>
-    let jsonurl = "https://rawgit.com/blrzzzt/2018carsga/master/final21.json";
+    let jsonurl = "https://rawgit.com/blrzzzt/2018carsga/master/final_11-13.json";
 
 function buildTables(carData) {
   // specify the columns
@@ -34,7 +34,7 @@ function buildTables(carData) {
         return `<a href="${params.value}" target="_blank">Website</a>`;
       }
     },
-    { headerName: "Miles from 628", field: "distance" }
+    { headerName: "Miles Away", field: "distance" }
   ];
 
   // specify the data
