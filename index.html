@@ -1,73 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <title> Car Results </title>
-    <script src="https://unpkg.com/ag-grid-community/dist/ag-grid-community.min.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-oAOxQR6DkCoMliIh8yFnu25d7Eq/PHS21PClpwjOTeU2jRSq11vu66rf90/cZr47" crossorigin="anonymous">
+  <link href="http://fonts.googleapis.com/css?family=Corben:bold" rel="stylesheet" type="text/css">
+ <link href="http://fonts.googleapis.com/css?family=Nobile" rel="stylesheet" type="text/css">
+  <title> Car Results </title>
+  <script src="https://unpkg.com/ag-grid-community/dist/ag-grid-community.min.js"></script>
 </head>
+
 <body>
-    <div id="myGrid" style="height: 700px; width:1200px;" class="ag-theme-balham"></div>
-  <script>
-    let jsonurl = "final.json";
-
-function buildTables(carData) {
-  // specify the columns
-  var columnDefs = [
-    {
-      headerName: "Vin Check",
-      field: "vin",
-      cellRenderer: function(params) {
-        return `<a href="https://www.iseecars.com/vin-${
-          params.value
-        }" target="_blank">Press Analyze</a>`;
-      }
-    },
-    { headerName: "Name", field: "heading" },
-    { headerName: "Price", field: "price" },
-    { headerName: "Miles", field: "miles" },
-    {
-      headerName: "Link",
-      field: "url",
-      cellRenderer: function(params) {
-        return `<a href="${params.value}" target="_blank">Website</a>`;
-      }
-    },
-    { headerName: "Miles Away", field: "distance" }
-  ];
-
-  // specify the data
-  var rowData = carData;
-
-  // let the grid know which columns and what data to use
-  var gridOptions = {
-    columnDefs: columnDefs,
-    rowData: rowData,
-    enableSorting: true,
-    enableFilter: true,
-    enableColResize: true
-  };
-
-  // lookup the container we want the Grid to use
-  var eGridDiv = document.querySelector("#myGrid");
-
-  // create the grid passing in the div to use together with the columns & data we want to use
-  new agGrid.Grid(eGridDiv, gridOptions);
-}
-
-let caller = () => {
-  fetch(jsonurl)
-    .then(function(response) {
-      return response.json();
-    })
-    .then(function(data) {
-      console.log(data);
-      buildTables(data);
-      gridOptions.columnApi.autoSizeColumns();
-    });
-};
-
-caller();
-</script>
+  <form class="pure-form">
+    <div>
+      <label for="body_type">Body Type:</label>
+      <select id="body_type" name="Body Type">
+  <option value="pickup">Pickup</option>
+  <option value="suv">SUV</option>
+  <option value="sedan">Sedan</option>
+  <option value="hatchback">Hatchback</option>
+  <option value="coupe">Coupe</option>
+  <option value="wagon">Wagon</option>
+    </select>
+      <br>
+      <label for="latitude">Latitude</label>
+      <input type="text" placeholder="38.9072" id="latitude">
+      <br>
+      <label for="longitude">Longitude</label>
+      <input type="text" placeholder="77.0369" id="longitude">
+      <br>      
+      <label for="radius">Radius Max 500</label>
+      <input type="number" id="radius" min=10 max=500>
+      <br>
+      <label for="year">Years (comma seperated)</label>
+      <input type="text" placeholder="e.g. 2014,2015,2016" id="year">
+      <br>
+     <label for="price">Max Price</label>
+      <input type="number" id="price">
+      <br>
+           <label for="miles">Max Mileage</label>
+      <input type="number" id="miles">
+      <br>
+      <label for="drivetrain">Drivetrain</label>
+      <select id="drivetrain">
+        <option value="4WD">4WD</option>
+        <option value="2WD">2WD</option>
+        <option value="FWD">FWD</option>
+      </select>
+      <br>
+      <input type="button" value="Run Query - Be Patient" onclick="submitValues()">
+    </div>
+  </form>
+  <div id="myGrid" hidden="true" style="width: 90vw; height: 90vh;" class="ag-theme-balham"></div>
+  <div id="loading">
+  </div>
 </body>
-</html>
 
-  
+</html>
