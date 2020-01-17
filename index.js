@@ -31,6 +31,7 @@ function submitValues () {
   }
 };
   searchOpts = _searchOpts
+  myGrid.innerHTML = ""
   beginRequest()
 }
 
@@ -182,6 +183,7 @@ function buildTables(carData) {
   // lookup the container we want the Grid to use
   let eGridDiv = document.querySelector("#myGrid");
 
+  loading.innerHTML = ""
   loading.hidden = true;
   eGridDiv.hidden = false;
 
