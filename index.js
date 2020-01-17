@@ -22,7 +22,7 @@ function buildTables(carData) {
         return `<a href="${params.value}" target="_blank">Website</a>`;
       }
     },
-    { headerName: "Miles from 628", field: "distance" }
+    { headerName: "Miles from Home", field: "distance" }
   ];
 
   // specify the data
