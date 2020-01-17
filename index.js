@@ -1,4 +1,4 @@
-let jsonurl = "https://rawgit.com/blrzzzt/2018carsga/master/finalRes.json";
+let jsonurl = "https://rawgit.com/blrzzzt/2018carsga/master/final.json";
 
 function buildTables(carData) {
   // specify the columns
