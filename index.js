@@ -155,9 +155,9 @@ function buildTables(carData) {
         }" target="_blank">Press Analyze</a>`;
       }
     },
-    { headerName: "Name", field: "heading" },
-    { headerName: "Price", field: "price" },
-    { headerName: "Miles", field: "miles" },
+    { headerName: "Name", field: "heading", sortable: true},
+    { headerName: "Price", field: "price", sortable: true },
+    { headerName: "Miles", field: "miles", sortable: true },
     {
       headerName: "Link",
       field: "url",
