@@ -15,7 +15,7 @@ function submitValues () {
   method: "search",
   qualifier: "?",
   criteria: {
-    api_key: "zmpS0ZL0SRUVX6GMteTiginWwKbLdxOy",
+    api_key: "axGzD5IYfwI94Ho2aYwAaKxrvSnPFGTO",
     year: year.value,
     latitude: latitude.value,
     longitude: longitude.value,
