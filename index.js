@@ -21,13 +21,13 @@ function submitValues () {
     longitude: longitude.value,
     radius: radius.value,
     body_type: body_type.value,
-    drivetrain: drivetrain.value,
+    //drivetrain: drivetrain.value,
     start: "0",
     rows: "50",
     seller_type: "dealer",
     carfax_clean_title: "true",
-    price_range: "0-38000",
-    miles_range: "0-50000"
+    price_range: `0-${price.value}`,
+    miles_range: `0-${miles.value}`
   }
 };
   searchOpts = _searchOpts
