@@ -24,7 +24,7 @@ function submitValues () {
     //drivetrain: drivetrain.value,
     start: "0",
     rows: "50",
-    seller_type: "dealer",
+    //seller_type: "dealer",
     carfax_clean_title: "true",
     price_range: `0-${price.value}`,
     miles_range: `0-${miles.value}`
@@ -155,7 +155,7 @@ function buildTables(carData) {
         }" target="_blank">Press Analyze</a>`;
       }
     },
-    { headerName: "Name", field: "heading", sortable: true},
+    { headerName: "Name", field: "heading", resizable: true, sortable: true},
     { headerName: "Price", field: "price", sortable: true },
     { headerName: "Miles", field: "miles", sortable: true },
     {
